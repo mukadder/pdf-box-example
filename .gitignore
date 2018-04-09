@@ -6,3 +6,5 @@ test-output/
 *.jar
 *.war
 *.ear
+/.project
+/.classpath
