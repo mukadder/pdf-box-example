@@ -18,7 +18,36 @@ public class AddMultipleLines {
 	      
 	      //Begin the Content stream 
 	      contentStream.beginText(); 
-	       
+	      contentStream.moveTextPositionByAmount(7, 105);
+	      contentStream.setFont(PDType1Font.HELVETICA, 12);
+	      contentStream.drawString("Normal text and ");
+	      contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+	      contentStream.drawString("bold text");
+	      contentStream.moveTextPositionByAmount(0, -25);
+	      contentStream.setFont(PDType1Font.HELVETICA_OBLIQUE, 12);
+	      contentStream.drawString("Italic text and ");
+	      contentStream.setFont(PDType1Font.HELVETICA_BOLD_OBLIQUE, 12);
+	      contentStream.drawString("bold italic text");
+	      contentStream.endText();
+
+	      contentStream.setLineWidth(.5f);
+
+	      contentStream.beginText();
+	      contentStream.moveTextPositionByAmount(7, 55);
+	      contentStream.setFont(PDType1Font.HELVETICA, 12);
+	      contentStream.drawString("Normal text and ");
+	      contentStream.appendRawCommands("2 Tr\n");
+	      contentStream.drawString("artificially bold text");
+	      contentStream.appendRawCommands("0 Tr\n");
+	      contentStream.moveTextPositionByAmount(0, -25);
+	      contentStream.appendRawCommands("1 Tr\n");
+	      contentStream.drawString("Artificially outlined text");
+	      contentStream.appendRawCommands("0 Tr\n");
+	      contentStream.setTextMatrix(1, 0, .2f, 1, 7, 5);
+	      contentStream.drawString("Artificially italic text and ");
+	      contentStream.appendRawCommands("2 Tr\n");
+	      contentStream.drawString("bold italic text");
+	      contentStream.appendRawCommands("0 Tr\n");
 	      //Setting the font to the Content stream  
 	      contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
 
