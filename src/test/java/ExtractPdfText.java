@@ -13,11 +13,11 @@ public final class ExtractPdfText
 
 	/**
 	 * Print text present in the document
-	 * @throws URISyntaxException 
+	 * @throws URISyntaxException
 	 */
 	public static void main( String[] args ) throws IOException, URISyntaxException
 	{
-		String fileName = "example.pdf"; // provide the path to pdf file
+		String fileName = "fdpModification.pdf"; // provide the path to pdf file
 		PDDocument document = null;
         File file = new File(ExtractPdfText.class.getResource(fileName).toURI());
 

@@ -9,15 +9,15 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 public class AddMultipleLines {
    public static void main(String args[]) throws IOException {
 	 //Loading an existing document
-	      File file = new File("my_doc.pdf");
+	      File file = new File("fdpModification.pdf");
 	      PDDocument document = PDDocument.load(file);
-	       
-	      //Retrieving the pages of the document 
+
+	      //Retrieving the pages of the document
 	      PDPage page = document.getPage(1);
 	      PDPageContentStream contentStream = new PDPageContentStream(document, page);
-	      
-	      //Begin the Content stream 
-	      contentStream.beginText(); 
+
+	      //Begin the Content stream
+	      contentStream.beginText();
 	      contentStream.moveTextPositionByAmount(7, 105);
 	      contentStream.setFont(PDType1Font.HELVETICA, 12);
 	      contentStream.drawString("Normal text and ");
@@ -48,10 +48,10 @@ public class AddMultipleLines {
 	      contentStream.appendRawCommands("2 Tr\n");
 	      contentStream.drawString("bold italic text");
 	      contentStream.appendRawCommands("0 Tr\n");
-	      //Setting the font to the Content stream  
+	      //Setting the font to the Content streamt
 	      contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
 
-	      //Setting the position for the line 
+	      //Setting the position for the line
 	      contentStream.newLineAtOffset(0, 0);
 
       //Setting the leading
@@ -77,7 +77,7 @@ public class AddMultipleLines {
 
       //Saving the document
       document.save(new File("newtou.pdf"));
-            
+
       //Closing the document
       document.close();
    }
