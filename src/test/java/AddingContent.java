@@ -10,12 +10,25 @@ public class AddingContent {
    public static void main (String args[]) throws IOException {
 
       //Loading an existing document
-      File file = new File("my_doc.pdf");
+      File file = new File("fdpModification1.pdf");
       PDDocument document = PDDocument.load(file);
 
       //Retrieving the pages of the document
-      PDPage page = document.getPage(1);
-      PDPageContentStream contentStream = new PDPageContentStream(document, page);
+      PDPage page = document.getPage(0);
+      PDPageContentStream contentStream = new PDPageContentStream(document, page,true,false);
+    //Begin the Content stream
+      contentStream.beginText();
+      contentStream.moveTextPositionByAmount(55, 420);
+      contentStream.setFont(PDType1Font.HELVETICA, 12);
+      contentStream.drawString("Normal text and ");
+      contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
+      contentStream.drawString("bold text");
+      contentStream.moveTextPositionByAmount(0, -20);
+      contentStream.setFont(PDType1Font.HELVETICA_OBLIQUE, 12);
+      contentStream.drawString("Italic text and ");
+      contentStream.setFont(PDType1Font.HELVETICA_BOLD_OBLIQUE, 12);
+      contentStream.drawString("bold italic text");
+      contentStream.endText();
 
       //Begin the Content stream
       contentStream.beginText();
@@ -24,9 +37,9 @@ public class AddingContent {
       contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
 
       //Setting the position for the line
-      contentStream.newLineAtOffset(0, 0);
+      contentStream.newLineAtOffset(0,10);
 
-      String text = "This is the sample document and we are adding content to it.";
+      String text = "This is the sample document and we are adding  loda content to it.";
 
       //Adding text in the form of string
       contentStream.showText(text);
